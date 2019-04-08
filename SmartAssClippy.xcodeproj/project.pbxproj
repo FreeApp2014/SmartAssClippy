@@ -8,20 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		84CEBBD9225B45F300A2E005 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CEBBD8225B45F300A2E005 /* AppDelegate.swift */; };
-		84CEBBDB225B45F300A2E005 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CEBBDA225B45F300A2E005 /* ViewController.swift */; };
-		84CEBBDE225B45F300A2E005 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84CEBBDC225B45F300A2E005 /* Main.storyboard */; };
 		84CEBBE0225B45F300A2E005 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84CEBBDF225B45F300A2E005 /* Assets.xcassets */; };
 		84CEBBE3225B45F300A2E005 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84CEBBE1225B45F300A2E005 /* LaunchScreen.storyboard */; };
+		84CEBBF0225B487A00A2E005 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84CEBBEE225B487A00A2E005 /* Main.storyboard */; };
+		84CEBBF1225B487A00A2E005 /* Clippy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CEBBEF225B487A00A2E005 /* Clippy.swift */; };
+		84CEBBF3225B489100A2E005 /* Clippy.png in Resources */ = {isa = PBXBuildFile; fileRef = 84CEBBF2225B489100A2E005 /* Clippy.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		84CEBBD5225B45F300A2E005 /* SmartAssClippy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartAssClippy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84CEBBD8225B45F300A2E005 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		84CEBBDA225B45F300A2E005 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		84CEBBDD225B45F300A2E005 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		84CEBBDF225B45F300A2E005 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		84CEBBE2225B45F300A2E005 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		84CEBBE4225B45F400A2E005 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84CEBBEE225B487A00A2E005 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		84CEBBEF225B487A00A2E005 /* Clippy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Clippy.swift; sourceTree = "<group>"; };
+		84CEBBF2225B489100A2E005 /* Clippy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Clippy.png; path = ../../Clippy.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,9 +56,10 @@
 		84CEBBD7225B45F300A2E005 /* SmartAssClippy */ = {
 			isa = PBXGroup;
 			children = (
+				84CEBBEE225B487A00A2E005 /* Main.storyboard */,
+				84CEBBF2225B489100A2E005 /* Clippy.png */,
+				84CEBBEF225B487A00A2E005 /* Clippy.swift */,
 				84CEBBD8225B45F300A2E005 /* AppDelegate.swift */,
-				84CEBBDA225B45F300A2E005 /* ViewController.swift */,
-				84CEBBDC225B45F300A2E005 /* Main.storyboard */,
 				84CEBBDF225B45F300A2E005 /* Assets.xcassets */,
 				84CEBBE1225B45F300A2E005 /* LaunchScreen.storyboard */,
 				84CEBBE4225B45F400A2E005 /* Info.plist */,
@@ -125,8 +128,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				84CEBBE3225B45F300A2E005 /* LaunchScreen.storyboard in Resources */,
+				84CEBBF0225B487A00A2E005 /* Main.storyboard in Resources */,
+				84CEBBF3225B489100A2E005 /* Clippy.png in Resources */,
 				84CEBBE0225B45F300A2E005 /* Assets.xcassets in Resources */,
-				84CEBBDE225B45F300A2E005 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,22 +141,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84CEBBDB225B45F300A2E005 /* ViewController.swift in Sources */,
 				84CEBBD9225B45F300A2E005 /* AppDelegate.swift in Sources */,
+				84CEBBF1225B487A00A2E005 /* Clippy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		84CEBBDC225B45F300A2E005 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				84CEBBDD225B45F300A2E005 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		84CEBBE1225B45F300A2E005 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -267,6 +263,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = space.freeappsw.SmartAssClippy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -280,6 +277,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = space.freeappsw.SmartAssClippy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -302,6 +300,7 @@
 				84CEBBE9225B45F400A2E005 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

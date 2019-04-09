@@ -10,39 +10,52 @@ import Foundation
 import UIKit
 
 class ViewController: UIViewController {
-    
+
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+
     @IBOutlet weak var spinningLoader: UIActivityIndicatorView!
 
     @IBAction func clickedShowHelp(_ sender: AnyObject) {
         self.spinningLoader.startAnimating();
-        performGetRequest(url: configAPIBase + "generate", completion: handleResponse, error: {err in
+        performGetRequest(url: configAPIBase + "generate", completion: /*handleResponse*/{a,b in}, error: {err in
             popupAlert(parent: self, title: "An error has occurred", message: "Unable to reach API. " + err.localizedDescription);
             self.spinningLoader.stopAnimating();
         })
     }
-    private func continueOperation(qId: String, rId: String){
-        performGetRequest(url: configAPIBase + "submitResponse?qid=" + qId + "&rid=" + rId, completion: <#T##@escaping (URLResponse, Data) -> Void##@escaping (Foundation.URLResponse, Foundation.Data) -> Swift.Void#>, error: <#T##@escaping (Error) -> Void##@escaping (Swift.Error) -> Swift.Void#>)
+    func continueOperation(qId: String, rId: String) -> Void {
+        performGetRequest(url: configAPIBase + "submitResponse?qid=" + qId + "&rid=" + rId, completion: /*handleResponse*/{a,n in }, error: {err in
+            popupAlert(parent: self, title: "An error has occurred", message: "Unable to reach API. " + err.localizedDescription);
+            self.spinningLoader.stopAnimating();
+        })
     }
 
-    private func handleResponse (data: Data, response: URLResponse) {
+/*    func handleResponse (response: URLResponse, data: Data) -> Void {
         let parsedResponse = try? JSONSerialization.jsonObject(with: data, options: []);
-        if let parsedResponse = parsedResponse as? [String: String] {
-            if (parsedResponse["state"] != "ok"){
-                popupAlert(parent: self, title: "An error has occurred", message: "API returned an error: " + parsedResponse["errorCode"]! + parsedResponse["errorHuman"]!);
-                return;
-            }
-            if let responseDict = parsedResponse["response"] as? [String: String]{
-                var actions: [UIAlertAction] = [];
-                let question: String = responseDict["question"]!;
-                if let actions = responseDict["actions"] as? [Dictionary]{
-                    for action in actions {
-                        actions.append(contentsOf: UIAlertAction.init(title: action["buttonTitle"], style: UIAlertActionStyle.default, handler: continueOperation(qId: responseDict["qid"], rId: action["rid"])));
+        if let parsedResponse = parsedResponse as? [String: Any] {
+            if (String(describing: parsedResponse["state"]) != "ok"){
+                popupAlert(parent: self, title: "An error has occurred", message: "API returned an error: " + String(describing: parsedResponse["errorCode"]!) + String(describing: parsedResponse["errorHuman"]!));
+            } else {
+                if let responseDict = parsedResponse["response"] as? [String: String] {
+                    var actions: [UIAlertAction] = [];
+                    let question: String = responseDict["question"]!;
+                    if (!Bool.init(responseDict["endOfDialog"]!)!) {
+                        if let actions = responseDict["actions"] as? [Dictionary] {
+                            for action in actions {
+                                actions.append(contentsOf: UIAlertAction.init(title: action["buttonTitle"], style: UIAlertActionStyle.default, handler: continueOperation(qId: responseDict["qid"], rId: action["rid"])));
+                            }
+                        }
                     }
+                    displayDialogActionSheet(parent: self, title: "Clippy says", text: question, actions: actions, completion: { () in self.spinningLoader.stopAnimating() });
                 }
-                displayDialogActionSheet(parent: self, title: "Question", text: "", actions: actions, completion: {() in self.spinningLoader.stopAnimating()});
-
             }
         }
+    }*/
+}
+class HAboutViewController: UIViewController{
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
 }
 

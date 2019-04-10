@@ -43,7 +43,7 @@ class CViewController: UIViewController {
     }
     private func loadTask(){
         performGetRequest(url: configAPIBase + "task?id=" + ipcResourceId, completion: { response, data in
-            do {apiValue = try JSONSerialization.jsonObject(with: data);} catch {popupAlert(parent: self, title: "Error", message: "."); return;};
+            do {apiValue = try JSONSerialization.jsonObject(with: data);} catch {popupAlert(parent: self, title: "Error", message: "Unable to parse API response."); return;};
             if let apiValue2 = apiValue as? [String: Any]{
                 self.textView.text = apiValue2["text"] as? String;
                 if let options = apiValue2["options"] as? [[String: String]] {

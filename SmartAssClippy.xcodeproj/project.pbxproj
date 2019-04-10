@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		586038927B7145C858D92A5F /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58603D6051F0DA7EE84076EC /* Helper.swift */; };
 		58603AF98DF5623A14C6AB3E /* config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58603B998617C3C49F86CAD4 /* config.swift */; };
+		8473F1B9225DFA4E00CC1B1F /* Conversation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8473F1B8225DFA4C00CC1B1F /* Conversation.storyboard */; };
+		8473F1BB225DFD3800CC1B1F /* Conversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8473F1BA225DFD3800CC1B1F /* Conversation.swift */; };
 		84CEBBD9225B45F300A2E005 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CEBBD8225B45F300A2E005 /* AppDelegate.swift */; };
 		84CEBBE0225B45F300A2E005 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84CEBBDF225B45F300A2E005 /* Assets.xcassets */; };
 		84CEBBE3225B45F300A2E005 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84CEBBE1225B45F300A2E005 /* LaunchScreen.storyboard */; };
@@ -20,6 +22,8 @@
 /* Begin PBXFileReference section */
 		58603B998617C3C49F86CAD4 /* config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = config.swift; sourceTree = "<group>"; };
 		58603D6051F0DA7EE84076EC /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		8473F1B8225DFA4C00CC1B1F /* Conversation.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Conversation.storyboard; sourceTree = "<group>"; };
+		8473F1BA225DFD3800CC1B1F /* Conversation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Conversation.swift; path = SmartAssClippy/Conversation.swift; sourceTree = SOURCE_ROOT; };
 		84CEBBD5225B45F300A2E005 /* SmartAssClippy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartAssClippy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84CEBBD8225B45F300A2E005 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84CEBBDF225B45F300A2E005 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -69,6 +73,8 @@
 				84CEBBE4225B45F400A2E005 /* Info.plist */,
 				58603D6051F0DA7EE84076EC /* Helper.swift */,
 				58603B998617C3C49F86CAD4 /* config.swift */,
+				8473F1B8225DFA4C00CC1B1F /* Conversation.storyboard */,
+				8473F1BA225DFD3800CC1B1F /* Conversation.swift */,
 			);
 			path = SmartAssClippy;
 			sourceTree = "<group>";
@@ -135,6 +141,7 @@
 			files = (
 				84CEBBE3225B45F300A2E005 /* LaunchScreen.storyboard in Resources */,
 				84CEBBF0225B487A00A2E005 /* Main.storyboard in Resources */,
+				8473F1B9225DFA4E00CC1B1F /* Conversation.storyboard in Resources */,
 				84CEBBF3225B489100A2E005 /* Clippy.png in Resources */,
 				84CEBBE0225B45F300A2E005 /* Assets.xcassets in Resources */,
 			);
@@ -150,6 +157,7 @@
 				84CEBBD9225B45F300A2E005 /* AppDelegate.swift in Sources */,
 				84CEBBF1225B487A00A2E005 /* Clippy.swift in Sources */,
 				586038927B7145C858D92A5F /* Helper.swift in Sources */,
+				8473F1BB225DFD3800CC1B1F /* Conversation.swift in Sources */,
 				58603AF98DF5623A14C6AB3E /* config.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -267,6 +275,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = N6M3GGC92B;
 				INFOPLIST_FILE = SmartAssClippy/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = space.freeappsw.SmartAssClippy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -281,6 +290,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = N6M3GGC92B;
 				INFOPLIST_FILE = SmartAssClippy/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = space.freeappsw.SmartAssClippy;
 				PRODUCT_NAME = "$(TARGET_NAME)";

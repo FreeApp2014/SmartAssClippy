@@ -4,3 +4,4 @@
 //
 
 let configAPIBase: String = "https://api.clippyapp.freeappsw.space/";
+var ipcResourceId: String = "";

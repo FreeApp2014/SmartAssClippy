@@ -53,9 +53,20 @@ class ViewController: UIViewController {
         }
     }*/
 }
-class HAboutViewController: UIViewController{
+class HAboutViewController: UIViewController {
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
-}
 
+    @IBAction func discordBtn(_ sender: AnyObject) {
+        UIApplication.shared.open(URL.init(string: "https://discord.gg/cuaEvdg")!);
+    }
+    @IBAction func githubBtn(_ sender: AnyObject) {
+        UIApplication.shared.open(URL.init(string: "https://github.com/FreeApp2014/SmartAssClippy")!);
+
+    }
+    @IBAction func twitterBtn(_ sender: AnyObject) {
+        UIApplication.shared.open(URL.init(string: "https://twitter.com/FreeAppSW")!);
+
+    }
+}

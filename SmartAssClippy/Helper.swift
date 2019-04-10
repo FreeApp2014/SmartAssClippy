@@ -31,3 +31,4 @@ func popupAlert(parent: UIViewController, title: String, message: String){
     asToPresent.addAction(UIAlertAction.init(title: "Dismiss", style: UIAlertActionStyle.cancel, handler: nil));
     parent.present(asToPresent, animated: true, completion: nil);
 }
+

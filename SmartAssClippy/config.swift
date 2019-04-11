@@ -3,5 +3,5 @@
 // Copyright (c) 2019 admin. All rights reserved.
 //
 
-let configAPIBase: String = "https://api-clippyapp.freeappsw.space/";
+let configAPIBase: String = "http:/192.168.1.67:9823/";
 var ipcResourceId: String = "";

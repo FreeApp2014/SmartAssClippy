@@ -33,31 +33,33 @@ class CViewController: UIViewController {
         let newButton: UIButton = UIButton();
         newButton.frame = CGRect(x: btnProt.frame.minX, y: btnY, width: btnProt.frame.width, height: btnProt.frame.height);
         newButton.setTitle(title, for: .normal);
+        newButton.setTitleColor(btnProt.currentTitleColor, for: .normal);
         newButton.addTarget(self, action: #selector(actionButton), for: .touchUpInside);
         newButton.restorationIdentifier = id;
-        self.view.addSubview(newButton);
+        newButton.clearsContextBeforeDrawing = true;
+        DispatchQueue.main.sync(execute: { self.view.addSubview(newButton); });
         return btnY;
     }
     @objc private func actionButton(sender: UIButton){
         loadNextTask(rId: (sender.restorationIdentifier)!, qId: quid)
     }
     private func loadTask(){
-        performGetRequest(url: configAPIBase + "task?id=" + ipcResourceId, completion: { response, data in
+        performGetRequest(url: configAPIBase + "?task&id=" + ipcResourceId, completion: { response, data in
             do {apiValue = try JSONSerialization.jsonObject(with: data);} catch {popupAlert(parent: self, title: "Error", message: "Unable to parse API response."); return;};
-            if let apiValue2 = apiValue as? [String: Any]{
-                self.textView.text = apiValue2["text"] as? String;
-                if let options = apiValue2["options"] as? [[String: String]] {
-                    for option in options {
-                        lastCGFloat = self.spawnActionButton(title: (option["text"])!, y: lastCGFloat, id: (option["rId"])!);
-                    }
+            if let apiValue2 = apiValue as? [String: Any] {
+                quid = apiValue2["qId"] as! String;
+                DispatchQueue.main.sync(execute: { self.textView.text = apiValue2["text"] as? String; })
+                let options = (apiValue2["options"])! as! NSArray;
+                for option in options {
+                    lastCGFloat = self.spawnActionButton(title: ((option as! [String: String])["text"])!, y: lastCGFloat, id: ((option as! [String: String])["rId"])!);
                 }
             }
-
         }, error:  {err in popupAlert(parent: self, title: "An error has occurred", message: "Unable to reach API. " + err.localizedDescription);})
     }
     private func loadNextTask(rId: String, qId: String){
-        performGetRequest(url: configAPIBase + "taskResponse?taskId=" + ipcResourceId + "&question=" + qId + "&response=" + rId , completion: { response, data in
-            do {apiValue = try JSONSerialization.jsonObject(with: data);} catch {popupAlert(parent: self, title: "Error", message: "."); return;};
+        performGetRequest(url: configAPIBase + "?taskResponse&taskId=" + ipcResourceId + "&question=" + qId + "&response=" + rId , completion: { response, data in
+            //TODO: rewrite everything here
+            do {apiValue = try JSONSerialization.jsonObject(with: data);} catch {popupAlert(parent: self, title: "Error", message: "Unable to parse API response."); return;};
             if let apiValue2 = apiValue as? [String: Any]{
                 self.textView.text = apiValue2["text"] as? String;
                 if let options = apiValue2["options"] as? [[String: String]] {

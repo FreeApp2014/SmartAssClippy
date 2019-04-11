@@ -1,0 +1,22 @@
+{
+  "name": "clippyapp-api-server",
+  "version": "1.0.0",
+  "description": "The API server for Clippy mobile app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FreeApp2014/SmartAssClippy.git"
+  },
+  "author": "FreeAppSW",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FreeApp2014/SmartAssClippy/issues"
+  },
+  "homepage": "https://github.com/FreeApp2014/SmartAssClippy#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}

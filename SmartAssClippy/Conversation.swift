@@ -44,7 +44,7 @@ class CViewController: UIViewController {
         loadNextTask(rId: (sender.restorationIdentifier)!, qId: quid)
     }
     private func loadTask(){
-        performGetRequest(url: configAPIBase + "?task&id=" + ipcResourceId, completion: { response, data in
+        performGetRequest(url: configAPIBase + "task?id=" + ipcResourceId, completion: { response, data in
             do {apiValue = try JSONSerialization.jsonObject(with: data);} catch {popupAlert(parent: self, title: "Error", message: "Unable to parse API response."); return;};
             if let apiValue2 = apiValue as? [String: Any] {
                 quid = apiValue2["qId"] as! String;
@@ -57,7 +57,7 @@ class CViewController: UIViewController {
         }, error:  {err in popupAlert(parent: self, title: "An error has occurred", message: "Unable to reach API. " + err.localizedDescription);})
     }
     private func loadNextTask(rId: String, qId: String){
-        performGetRequest(url: configAPIBase + "?taskResponse&taskId=" + ipcResourceId + "&question=" + qId + "&response=" + rId , completion: { response, data in
+        performGetRequest(url: configAPIBase + "taskResponse?taskId=" + ipcResourceId + "&question=" + qId + "&response=" + rId , completion: { response, data in
             //TODO: rewrite everything here
             do {apiValue = try JSONSerialization.jsonObject(with: data);} catch {popupAlert(parent: self, title: "Error", message: "Unable to parse API response."); return;};
             if let apiValue2 = apiValue as? [String: Any]{

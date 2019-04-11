@@ -20,7 +20,7 @@ class ViewController: UIViewController {
     @IBAction func clickedShowHelp(_ sender: AnyObject) {
         self.spinningLoader.startAnimating();
         //TODO: Initiate show segue once loaded
-        performGetRequest(url: configAPIBase + "?generate", completion: {a,n in ipcResourceId = String(data: n, encoding: .utf8)!; popupAlert(parent: self, title: "Copied", message: "ID copied") }, error: {err in
+        performGetRequest(url: configAPIBase + "generate", completion: {a,n in ipcResourceId = String(data: n, encoding: .utf8)!; popupAlert(parent: self, title: "Copied", message: "ID copied") }, error: {err in
             popupAlert(parent: self, title: "An error has occurred", message: "Unable to reach API. " + err.localizedDescription);
             DispatchQueue.main.sync(execute: {self.spinningLoader.stopAnimating();});
         })

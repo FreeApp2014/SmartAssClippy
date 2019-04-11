@@ -37,7 +37,7 @@ class CViewController: UIViewController {
         newButton.addTarget(self, action: #selector(actionButton), for: .touchUpInside);
         newButton.restorationIdentifier = id;
         newButton.clearsContextBeforeDrawing = true;
-        DispatchQueue.main.sync(execute: { self.view.addSubview(newButton); });
+        self.view.addSubview(newButton);
         return btnY;
     }
     @objc private func actionButton(sender: UIButton){
@@ -51,7 +51,7 @@ class CViewController: UIViewController {
                 DispatchQueue.main.sync(execute: { self.textView.text = apiValue2["text"] as? String; })
                 let options = (apiValue2["options"])! as! NSArray;
                 for option in options {
-                    lastCGFloat = self.spawnActionButton(title: ((option as! [String: String])["text"])!, y: lastCGFloat, id: ((option as! [String: String])["rId"])!);
+                    DispatchQueue.main.sync(execute: {lastCGFloat = self.spawnActionButton(title: ((option as! [String: String])["text"])!, y: lastCGFloat, id: ((option as! [String: String])["rId"])!);});
                 }
             }
         }, error:  {err in popupAlert(parent: self, title: "An error has occurred", message: "Unable to reach API. " + err.localizedDescription);})

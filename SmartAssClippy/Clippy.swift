@@ -16,11 +16,24 @@ class ViewController: UIViewController {
     }
 
     @IBOutlet weak var spinningLoader: UIActivityIndicatorView!
+    
+    @IBAction func pressInfo(_ sender: AnyObject) {
+        let newVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "aboutVC");
+        self.present(newVC, animated: true);
+    }
 
     @IBAction func clickedShowHelp(_ sender: AnyObject) {
         self.spinningLoader.startAnimating();
-        //TODO: Initiate show segue once loaded
-        performGetRequest(url: configAPIBase + "generate", completion: {a,n in ipcResourceId = String(data: n, encoding: .utf8)!; popupAlert(parent: self, title: "Copied", message: "ID copied") }, error: {err in
+        performGetRequest(url: configAPIBase + "generate", completion: {a,n in
+            ipcResourceId = String(data: n, encoding: .utf8)!;
+            //DispatchQueue.main.sync(execute: {popupAlert(parent: self, title: "Copied", message: "ID copied");});
+            DispatchQueue.main.sync(execute: {
+                self.spinningLoader.stopAnimating();
+                let newVC = UIStoryboard(name: "Conversation", bundle: nil).instantiateInitialViewController();
+                self.present(newVC!, animated: true);
+
+            });
+        }, error: {err in
             popupAlert(parent: self, title: "An error has occurred", message: "Unable to reach API. " + err.localizedDescription);
             DispatchQueue.main.sync(execute: {self.spinningLoader.stopAnimating();});
         })
@@ -29,6 +42,10 @@ class ViewController: UIViewController {
 class HAboutViewController: UIViewController {
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
+    }
+    
+    @IBAction func done(_ sender: AnyObject) {
+        self.dismiss(animated: true);
     }
 
     @IBAction func discordBtn(_ sender: AnyObject) {

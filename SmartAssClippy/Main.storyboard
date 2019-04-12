@@ -38,9 +38,7 @@
                                     <navigationItem title="Clippy" id="BTR-cC-MFt">
                                         <barButtonItem key="rightBarButtonItem" systemItem="action" id="OhE-dt-f5x">
                                             <connections>
-                                                <segue destination="TUX-wZ-EtZ" kind="popoverPresentation" popoverAnchorBarButtonItem="OhE-dt-f5x" id="cty-Kr-xvr">
-                                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                                </segue>
+                                                <action selector="pressInfo:" destination="8wn-x2-0QR" id="Gy1-zf-3fc"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -80,7 +78,7 @@
         <!--About View Controller-->
         <scene sceneID="y9J-yQ-442">
             <objects>
-                <viewController id="TUX-wZ-EtZ" customClass="HAboutViewController" customModule="SmartAssClippy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="aboutVC" id="TUX-wZ-EtZ" customClass="HAboutViewController" customModule="SmartAssClippy" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9m0-Pq-GzZ"/>
                         <viewControllerLayoutGuide type="bottom" id="WmC-Cn-L6o"/>
@@ -98,9 +96,9 @@
                                 </textAttributes>
                                 <items>
                                     <navigationItem title="About Clippy" id="pSS-e9-wWZ">
-                                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="done" id="j4R-2M-MPm">
+                                        <barButtonItem key="leftBarButtonItem" style="done" systemItem="done" id="j4R-2M-MPm">
                                             <connections>
-                                                <segue destination="8wn-x2-0QR" kind="show" id="Fa9-Wb-4NZ"/>
+                                                <action selector="done:" destination="TUX-wZ-EtZ" id="5W3-2e-arY"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -132,14 +130,6 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vhv-5U-fI4">
-                                <frame key="frameInset" minX="164" minY="617" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <segue destination="ATu-Dr-tJA" kind="show" id="GRZ-f2-LHT"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B7n-Zs-gSn">
                                 <frame key="frameInset" minY="375" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -175,14 +165,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HVl-ht-WX9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="549.60000000000002" y="74.212893553223395"/>
-        </scene>
-        <!--Conversation-->
-        <scene sceneID="3g9-N0-Mdy">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Conversation" id="ATu-Dr-tJA" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="g35-6j-NlH" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1226" y="80"/>
         </scene>
     </scenes>
     <resources>
